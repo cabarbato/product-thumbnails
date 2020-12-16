@@ -1,28 +1,58 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <button @click="$refs.modalName.openModal()">Open modal</button>
+    <ProductGrid :products="test_json" />
+    
+    <modal ref="modalName">
+      <template v-slot:header>
+        <h1>product title</h1>
+      </template>
+
+      <template v-slot:product>
+        product info
+      </template>
+      <template v-slot:company>
+        company info
+      </template>
+
+      <template v-slot:footer>
+        <div>
+          <button @click="$refs.modalName.closeModal()">close</button>
+        </div>
+      </template>
+    </modal>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import ProductGrid from "./components/ProductGrid.vue";
+import Modal from "./components/Modal.vue";
+import test_json from "./data/test.json";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
-  }
+    ProductGrid,
+    Modal
+  },
+  data() {
+    return {
+      test_json,
+    };
+  },
 };
 </script>
 
 <style lang="scss">
+@import "scss/main";
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: $desktop;
+  
+  &.overflow-hidden {
+    overflow: hidden;
+  }
 }
 </style>
