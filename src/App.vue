@@ -3,20 +3,23 @@
     <section class="company-info">
       <div class="company-info__title">
         <h1>{{ test_json.CompanyName }}</h1>
-      </div>
-      <div class="company-info__details">
         <img
           :src="
-            `http://images.repzio.com/productimages/${test_json.ManufacturerID}/logo${test_json.ManufacturerID}_lg.jpg?width=200&mode=max`
+            `http://images.repzio.com/productimages/${test_json.ManufacturerID}/logo${test_json.ManufacturerID}_lg.jpg?width=100&mode=max`
           "
           :alt="test_json.CompanyName"
         />
-        <div v-html="test_json.Message"></div>
+      </div>
+      <div class="company-info__details">
+        <div
+          class="company-info__details-message"
+          v-html="test_json.Message"
+        ></div>
+        <SalesRep :sales_rep="test_json.SalesRep" />
       </div>
     </section>
 
     <ItemGrid :products="test_json.items" />
-    <SalesRep :sales_rep="test_json.SalesRep" />
   </main>
 </template>
 
@@ -79,14 +82,37 @@ main {
   }
 
   .company-info {
-    h1 {
-      @include header-underline;
-    }
-    &__details {
+    text-align: center;
+    &__title {
+      text-align: center;
       display: flex;
       align-items: center;
-      & > * {
+      justify-content: space-between;
+      padding: 0 0.5rem;
+
+      h1 {
+        @include header-underline;
+      }
+
+      @media (max-width: $mobile) {
+        flex-direction: column-reverse;
+        h1 {
+          margin: 0.25rem 0 1rem;
+        }
+      }
+    }
+    &__details {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      margin: 1rem auto;
+      &-message {
         margin: 0 1rem;
+        @include quotes;
+        p {
+          margin: 0.5rem 0;
+        }
       }
     }
   }

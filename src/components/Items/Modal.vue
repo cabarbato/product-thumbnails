@@ -143,17 +143,20 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+
     h1 {
-    margin-right: 1rem;
+      margin-right: 1rem;
     }
   }
   &__product {
     margin: 1rem 0;
     overflow: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @media (min-width: $mobile) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     div {
       margin-right: 1rem;
     }
@@ -161,6 +164,8 @@ export default {
       flex-grow: 2;
       text-align: center;
       img {
+        clip-path: inset(.66rem .66rem .66rem .66rem);
+        overflow: hidden;
         max-width: 100%;
         height: auto;
       }

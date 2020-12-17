@@ -33,9 +33,9 @@ export default {
 @import "../../scss/main";
 .product-grid {
   width: 100%;
-  -webkit-column-gap: .5rem;
-  -moz-column-gap: .5rem;
-  column-gap: .5rem;
+  -webkit-column-gap: 0.5rem;
+  -moz-column-gap: 0.5rem;
+  column-gap: 0.5rem;
   -moz-column-count: 4;
   -webkit-column-count: 4;
   column-count: 4;
@@ -57,8 +57,9 @@ export default {
   }
 
   .grid-item {
-    margin: 0 0.25rem 1rem;
-    display: block;
+    margin: 4px 0.25rem 1rem;
+    padding: 4px;
+    display: inline-block;
   }
 }
 </style>

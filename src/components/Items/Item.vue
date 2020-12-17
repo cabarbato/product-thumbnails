@@ -2,7 +2,7 @@
   <div class="item-info">
     <div class="item-info__image">
       <img
-        :src="`${product.PhotoName}?width=750&mode=max`"
+        :src="`${product.PhotoName}?width=550&mode=max`"
         :alt="product.ItemName"
       />
     </div>
@@ -32,7 +32,7 @@ export default {
 @import "../../scss/main";
 .item-info {
   position: relative;
-  min-height: calc(250px - 1rem);
+  min-height: calc(200px - 1rem);
   cursor: pointer;
   box-sizing: border-box;
   border: 1px solid $light;
@@ -44,7 +44,7 @@ export default {
   align-items: center;
 
   &:hover {
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
     img {
       filter: grayscale(1) blur(0.6rem);
     }
@@ -55,21 +55,25 @@ export default {
 
   &__image {
     z-index: -1;
+    width: 100%;
+    min-height: calc(200px - 1rem);
+    clip-path: inset(0.5rem 0.5rem 0.5rem 0.5rem);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
     img {
-      transition: 300ms;
+      transition: 200ms;
       max-width: 100%;
-      max-height: 100%;
     }
   }
 
   &__text {
-    //opacity: 0;
+    opacity: 0;
     z-index: 1;
     top: 0.5rem;
     left: 0.5rem;
-    transform: translate(50%, -50%, 0%);
     position: absolute;
-    transition: 300ms;
+    transition: 200ms;
     text-align: center;
     width: calc(100% - 1rem);
     height: calc(100% - 1rem);
@@ -89,6 +93,7 @@ export default {
       h3 {
         text-transform: uppercase;
         color: $white;
+        margin: 1rem auto 0.25rem;
       }
     }
 
