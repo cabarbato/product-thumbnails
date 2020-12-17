@@ -1,9 +1,2 @@
 @import "variables";
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600&display=swap');
-
-
-html,
-body {
-  font-size: $font-size;
-  font-family: 'Nunito Sans', sans-serif;
-}
+@import "mixins";
