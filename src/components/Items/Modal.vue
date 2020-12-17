@@ -40,7 +40,7 @@
         <div v-if="selected_product.Description.length" class="modal__details">
           <div>
             <h3>Description</h3>
-            <p>{{ selected_product.Description }}</p>
+            <p>{{ selected_product.Description }}{{selected_product.Description.length >= 255 ? "...": null}}</p>
           </div>
         </div>
       </div>
