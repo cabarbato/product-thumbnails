@@ -3,6 +3,12 @@
     <h3 class="sales-rep__name">
       {{ sales_rep.FirstName }} {{ sales_rep.LastName }}
     </h3>
+    <p class="sales-rep__location">
+      <strong
+        >{{ sales_rep.CompanyName }} | {{ sales_rep.City }},
+        {{ sales_rep.State }}</strong
+      >
+    </p>
     <p class="sales-rep__email contact-link">
       <a :href="`mailto: ${sales_rep.EmailAddress}`">{{
         sales_rep.EmailAddress
@@ -31,14 +37,17 @@ export default {
   &__name {
     @include header-underline;
   }
+  &__location {
+    margin-bottom: 0.67rem;
+  }
 
   .contact-link {
-    margin: 0 0 .33rem;
-    
+    margin: 0 0 0.33rem;
+
     a {
       transition: 150ms;
       color: $green;
-      
+
       &:link {
         text-decoration: none;
       }

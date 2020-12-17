@@ -95,10 +95,8 @@ export default {
   }
   &__dialog {
     background-color: #ffffff;
-    position: relative;
     width: calc(100vw - 3rem);
     max-width: 600px;
-    margin: 3rem auto;
     display: flex;
     flex-direction: column;
     border-radius: 2px;
@@ -106,8 +104,21 @@ export default {
     z-index: 2;
     padding: 1rem 2rem;
     box-sizing: border-box;
-    @media screen and (max-width: 992px) {
+    @media (max-width: $desktop) {
       width: 90%;
+    }
+    @media (min-height: $tablet) {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    @media (max-height: $tablet) {
+      position: relative;
+      left: 0;
+      top: 0;
+      transform: translate(0, 0);
+      margin: 3rem auto;
     }
     & > hr {
       background-color: $light;
@@ -164,7 +175,7 @@ export default {
       flex-grow: 2;
       text-align: center;
       img {
-        clip-path: inset(.66rem .66rem .66rem .66rem);
+        clip-path: inset(0.5rem 0.5rem 0.5rem 0.5rem);
         overflow: hidden;
         max-width: 100%;
         height: auto;

@@ -107,6 +107,10 @@ main {
       align-items: flex-start;
       justify-content: center;
       margin: 1rem auto;
+      @media (max-width: $mobile) {
+        margin: 1rem 2rem;
+      }
+      
       &-message {
         margin: 0 1rem;
         @include quotes;
